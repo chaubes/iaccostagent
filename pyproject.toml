@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "iaccostagent"
-version = "0.1.0"
+version = "0.1.1"
 description = "AI-powered Terraform cost preview and optimization advisor built with LangGraph"
 readme = "README.md"
 license = { text = "MIT" }
