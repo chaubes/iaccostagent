@@ -12,6 +12,14 @@ IaCCostAgent parses your Terraform (HCL or plan JSON), runs cost estimation via 
 
 Unlike raw cost tools that show numbers, IaCCostAgent answers: **"Why is this expensive, and what can I do about it?"**
 
+## Demo
+
+Real output from `iaccostagent analyze tests/fixtures/terraform/overprovisioned --backend aws-pricing --no-llm`:
+
+![iaccostagent analyze demo](docs/demo.svg)
+
+Regenerate with `uv run python scripts/generate_demo_svg.py` if the output shape changes.
+
 ## Features
 
 - **Terraform-native**: HCL files and Terraform plan JSON both supported

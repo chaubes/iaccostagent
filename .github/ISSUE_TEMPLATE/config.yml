@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the README first
+    url: https://github.com/chaubes/iaccostagent#readme
+    about: The README covers installation, backend selection, privacy, and CI/CD integration
+  - name: Extension guide
+    url: https://github.com/chaubes/iaccostagent/blob/master/docs/adding-backends.md
+    about: Want to add a backend or pattern? Start here
+  - name: Security vulnerabilities
+    url: https://github.com/chaubes/iaccostagent/blob/master/SECURITY.md
+    about: Please report security issues privately, not via public issues
