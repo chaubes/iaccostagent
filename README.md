@@ -14,11 +14,21 @@ Unlike raw cost tools that show numbers, IaCCostAgent answers: **"Why is this ex
 
 ## Demo
 
-Real output from `iaccostagent analyze tests/fixtures/terraform/overprovisioned --backend aws-pricing --no-llm`:
+Both demos run the same command against the same fixture — `iaccostagent analyze tests/fixtures/terraform/overprovisioned --backend infracost --region us-east-1` — differing only in whether the LLM layer is active.
 
-![iaccostagent analyze demo](docs/demo.svg)
+### With an LLM (OpenAI `gpt-4o-mini`)
 
-Regenerate with `uv run python scripts/generate_demo_svg.py` if the output shape changes.
+The LLM produces a natural-language executive summary and refines each optimization with risk level + Terraform-specific implementation notes.
+
+![iaccostagent analyze with LLM](docs/demo-with-llm.svg)
+
+### Without an LLM (`--no-llm` / air-gapped)
+
+Same cost numbers, same patterns detected — but the summary and suggestions fall back to the deterministic rule engine. No LLM contacted.
+
+![iaccostagent analyze no-llm](docs/demo-no-llm.svg)
+
+Regenerate both with `uv run python scripts/generate_demo_svg.py` when the output shape changes. The script sanitizes any absolute paths from the SVG before writing it.
 
 ## Features
 
