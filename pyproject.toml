@@ -9,7 +9,7 @@ description = "AI-powered Terraform cost preview and optimization advisor built 
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.11"
-authors = [{ name = "Saurabh" }]
+authors = [{ name = "Saurabh Chaubey", email = "saurabh.chaubey17@gmail.com" }]
 keywords = ["terraform", "cost", "infracost", "finops", "ai", "langgraph", "devops"]
 
 dependencies = [
