@@ -1,0 +1,64 @@
+{
+  "version": "0.2",
+  "currency": "USD",
+  "projects": [
+    {
+      "name": "simple_web_app",
+      "breakdown": {
+        "resources": [
+          {
+            "name": "aws_instance.web",
+            "resourceType": "aws_instance",
+            "monthlyCost": "60.74",
+            "hourlyCost": "0.0832",
+            "costComponents": [
+              {
+                "name": "Linux/UNIX usage (on-demand, t3.large)",
+                "unit": "hours",
+                "monthlyQuantity": "730",
+                "monthlyUnitCost": "0.0832",
+                "monthlyCost": "60.74"
+              }
+            ]
+          },
+          {
+            "name": "aws_db_instance.database",
+            "resourceType": "aws_db_instance",
+            "monthlyCost": "1152.40",
+            "costComponents": [
+              {
+                "name": "Database instance (on-demand, Single-AZ, db.r5.2xlarge)",
+                "unit": "hours",
+                "monthlyQuantity": "730",
+                "monthlyUnitCost": "1.580",
+                "monthlyCost": "1153.40"
+              },
+              {
+                "name": "Storage (general purpose SSD, gp2)",
+                "unit": "GB",
+                "monthlyQuantity": "100",
+                "monthlyUnitCost": "0.115",
+                "monthlyCost": "11.50"
+              }
+            ]
+          },
+          {
+            "name": "aws_lb.app",
+            "resourceType": "aws_lb",
+            "monthlyCost": "22.27",
+            "costComponents": [
+              {
+                "name": "Application load balancer",
+                "unit": "hours",
+                "monthlyQuantity": "730",
+                "monthlyUnitCost": "0.0225",
+                "monthlyCost": "16.43"
+              }
+            ]
+          }
+        ],
+        "totalMonthlyCost": "1235.41"
+      }
+    }
+  ]
+}

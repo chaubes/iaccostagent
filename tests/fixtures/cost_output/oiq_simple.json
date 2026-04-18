@@ -1,0 +1,34 @@
+{
+  "total_monthly_cost": 1235.41,
+  "resources": [
+    {
+      "address": "aws_instance.web",
+      "type": "aws_instance",
+      "name": "web",
+      "monthly_cost": 60.74,
+      "components": [
+        {
+          "name": "EC2 t3.large on-demand",
+          "unit": "hours",
+          "monthly_quantity": 730,
+          "unit_cost": 0.0832,
+          "monthly_cost": 60.74
+        }
+      ]
+    },
+    {
+      "address": "aws_db_instance.database",
+      "type": "aws_db_instance",
+      "name": "database",
+      "monthly_cost": 1152.4,
+      "components": []
+    },
+    {
+      "address": "aws_lb.app",
+      "type": "aws_lb",
+      "name": "app",
+      "monthly_cost": 22.27,
+      "components": []
+    }
+  ]
+}

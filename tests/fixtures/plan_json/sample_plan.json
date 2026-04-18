@@ -1,0 +1,59 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.7.0",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_instance.web",
+          "mode": "managed",
+          "type": "aws_instance",
+          "name": "web",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "ami": "ami-0c55b159cbfafe1f0",
+            "instance_type": "t3.large",
+            "tags": {"Name": "web-server", "Environment": "production"}
+          }
+        },
+        {
+          "address": "aws_db_instance.database",
+          "mode": "managed",
+          "type": "aws_db_instance",
+          "name": "database",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "allocated_storage": 100,
+            "engine": "postgres",
+            "engine_version": "15.4",
+            "instance_class": "db.r5.2xlarge"
+          }
+        },
+        {
+          "address": "data.aws_ami.latest",
+          "mode": "data",
+          "type": "aws_ami",
+          "name": "latest",
+          "values": {}
+        }
+      ],
+      "child_modules": [
+        {
+          "address": "module.networking",
+          "resources": [
+            {
+              "address": "module.networking.aws_nat_gateway.main",
+              "mode": "managed",
+              "type": "aws_nat_gateway",
+              "name": "main",
+              "values": {
+                "allocation_id": "eipalloc-123",
+                "subnet_id": "subnet-123"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
