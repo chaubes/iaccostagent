@@ -265,3 +265,6 @@ class TestServeInstallHint:
         # The literal string "[server]" must appear in the output — Rich
         # must not have eaten it as a markup tag.
         assert "[server]" in result.stdout
+        # Both install paths are offered.
+        assert "pip install" in result.stdout
+        assert "uv tool install" in result.stdout

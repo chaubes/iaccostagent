@@ -610,9 +610,11 @@ def serve(
         console.print("[red]Server dependencies not installed.[/red]")
         # Escape the square brackets: Rich interprets [server] as a markup tag
         # and would otherwise silently drop it, leaving the user with a
-        # truncated install hint. Also remind them to quote in a shell since
-        # bash/zsh treat `[...]` as a glob.
-        console.print(r"Install with: pip install 'iaccostagent\[server]'")
+        # truncated install hint. Also keep the extras spec single-quoted
+        # since bash/zsh treat `[...]` as a glob pattern.
+        console.print("Install with either:")
+        console.print(r"  pip install 'iaccostagent\[server]'")
+        console.print(r"  uv tool install 'iaccostagent\[server]'")
         raise typer.Exit(code=1)
 
     console.print(f"Starting IaCCostAgent server on {host}:{port}...")

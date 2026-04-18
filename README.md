@@ -193,7 +193,15 @@ iaccostagent check-backend --backend infracost --verify
 
 ### `iaccostagent serve`
 
-Start the FastAPI HTTP server (requires `pip install iaccostagent[server]`).
+Start the FastAPI HTTP server. Requires the `[server]` extras — install with either:
+
+```bash
+pip install 'iaccostagent[server]'
+# or
+uv tool install 'iaccostagent[server]'
+```
+
+The single quotes stop bash/zsh from expanding `[...]` as a glob.
 
 ## Supported Backends
 
