@@ -241,3 +241,27 @@ class TestCheckBackendVerify:
 
         assert result.exit_code == 1
         assert "End-to-end verification failed" in result.stdout
+
+
+class TestServeInstallHint:
+    """The serve command's install hint must not be eaten by Rich markup."""
+
+    def test_install_hint_mentions_server_extras(self) -> None:
+        # Simulate the missing-extras branch by patching the import inside the
+        # serve command. We monkeypatch sys.modules so `import uvicorn` fails.
+        import sys
+
+        saved_uvicorn = sys.modules.pop("uvicorn", None)
+        sys.modules["uvicorn"] = None  # type: ignore[assignment]
+        try:
+            result = runner.invoke(app, ["serve", "--port", "8899"])
+        finally:
+            if saved_uvicorn is not None:
+                sys.modules["uvicorn"] = saved_uvicorn
+            else:
+                sys.modules.pop("uvicorn", None)
+
+        assert result.exit_code == 1
+        # The literal string "[server]" must appear in the output — Rich
+        # must not have eaten it as a markup tag.
+        assert "[server]" in result.stdout
