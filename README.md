@@ -28,8 +28,6 @@ Same cost numbers, same patterns detected — but the summary and suggestions fa
 
 ![iaccostagent analyze no-llm](docs/demo-no-llm.svg)
 
-Regenerate both with `uv run python scripts/generate_demo_svg.py` when the output shape changes. The script sanitizes any absolute paths from the SVG before writing it.
-
 ## Features
 
 - **Terraform-native**: HCL files and Terraform plan JSON both supported

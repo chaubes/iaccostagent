@@ -64,6 +64,18 @@ See `docs/adding-backends.md` for the full guide.
 
 Add a rule to `patterns/rules.py` and a test case to `tests/unit/test_patterns.py`. See `docs/writing-patterns.md`.
 
+## Regenerating the demo SVGs
+
+If you change the terminal output format (colors, tables, summary structure), regenerate the two SVGs embedded in the README so they stay in sync with the real CLI output:
+
+```bash
+uv run python scripts/generate_demo_svg.py
+```
+
+This writes `docs/demo-no-llm.svg` and `docs/demo-with-llm.svg` from a real pipeline run against the `overprovisioned` fixture using the `infracost` backend. The with-LLM variant uses `openai/gpt-4o-mini` by default (override with `IACCOSTAGENT_DEMO_LLM=...`).
+
+The script sanitizes any absolute paths (`/Users/...`, `/home/...`, `$PWD`) from the generated SVG before writing, so developer-machine paths never leak into committed demos. Run it from the repo root so relative fixture paths resolve correctly.
+
 ## Pull Requests
 
 - Keep PRs focused and small where possible.
