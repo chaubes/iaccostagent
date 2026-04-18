@@ -5,6 +5,17 @@ All notable changes to IaCCostAgent will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-04-18
+
+### Fixed
+
+- `iaccostagent serve` now prints the full extras spec (`[server]`) in the
+  missing-server-dependencies error message. Rich was silently eating it as
+  a markup tag — users saw `pip install iaccostagent` instead of
+  `pip install 'iaccostagent[server]'`. Added `uv tool install 'iaccostagent[server]'`
+  as an alternative install path in the same hint. README's `serve` section
+  mirrors both install commands.
+
 ## [0.1.0] - 2026-04-18
 
 First public release.
